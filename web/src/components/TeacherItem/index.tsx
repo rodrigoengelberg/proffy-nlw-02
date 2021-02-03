@@ -23,7 +23,7 @@ function TeacherItem() {
 
             <footer>
                 <p>
-                    Preço/hora
+                    Preço/hora:
                     <strong>R$ 80,00</strong>
                 </p>
                 <button type="button">
