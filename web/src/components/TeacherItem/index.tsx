@@ -1,35 +1,54 @@
 import React from 'react'
 
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg'
+import api from '../../services/api'
 
 import './styles.css'
 
-function TeacherItem() {
+export interface Teacher {
+    id: number,
+    name: string,
+    subject: string,
+    avatar: string,
+    bio: string,
+    whatsapp: string,
+    cost: number
+}
+
+interface TeacherItemProps {
+    teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+
+    function createNewConnection() {
+        api.post('connections', {
+            user_id: teacher.id
+        })
+    }
+
     return(
         <article className="teacher-item">
             <header>
-                <img src="https://avatars.githubusercontent.com/u/2336715?s=460&u=8be295f94b550e46f27d9260bf8df76669b7cdff&v=4" alt="Rodrigo Engelberg" />
+                <img src={teacher.avatar} alt={teacher.name} />
                 <div>
-                    <strong>Rodrigo Engelberg</strong>
-                    <span>Física</span>
+                    <strong>{teacher.name}</strong>
+                    <span>{teacher.subject}</span>
                 </div>
             </header>
 
-            <p>
-                Entusiasta das melhores tecnologias de física avançada.
-                <br /><br />
-                Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.
-            </p>
+            <p>{teacher.bio}</p>
 
             <footer>
                 <p>
                     Preço/hora:
-                    <strong>R$ 80,00</strong>
+                    <strong>R$ {teacher.cost}</strong>
                 </p>
-                <button type="button">
+                <a  onClick={createNewConnection} target="_blank"
+                    href={`https://wa.me/55${teacher.whatsapp}?text=Olá, gostaria de agendar uma aula com você.`}>
                     <img src={whatsappIcon} alt="Whatsapp"/>
                     Entrar em contato
-                </button>
+                </a>
             </footer>
         </article>
     )
