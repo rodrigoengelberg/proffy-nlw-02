@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     },
 
     inputDiaDaSemana: {
-        width: '60%'
+        width: '70%'
     },
 
     inputHorario: {
         paddingLeft: 10,
-        width: '40%'
+        width: '30%'
     },
 
     picker: {

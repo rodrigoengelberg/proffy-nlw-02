@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Image, Text, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-
-import styles from './styles'
+import { useFocusEffect } from '@react-navigation/native'
 
 import landingImg from '../../assets/images/landing.png'
 import studyIcon from '../../assets/images/icons/study.png'
 import giveClassesIcon from '../../assets/images/icons/give-classes.png'
 import hearIcon from '../../assets/images/icons/heart.png'
+
+import api from '../../service/api'
+
+import styles from './styles'
 
 function Landing() {
 
@@ -20,6 +23,12 @@ function Landing() {
     function handleNavigateToStudyPages() {
         navigate('Study')
     }
+
+    const [totalConnections, setTotalConnections] = useState(0)
+
+    useFocusEffect(() => {
+      api.get('connections').then(response => setTotalConnections(response.data.total))
+    })
 
     return (
         <View style={styles.container}>
@@ -45,7 +54,7 @@ function Landing() {
             </View>
 
             <Text style={styles.totalConnections}>
-                Total de 285 conexões já realizadas {' '}
+                Total de {totalConnections} conexões já realizadas {' '}
                 <Image source={hearIcon} />
             </Text>
         </View>
