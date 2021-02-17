@@ -1,5 +1,5 @@
 <p align="center">
-   <img src=".github/nlw2-logo" alt="proffy-web" width="280"/>
+   <img src=".github/nlw2-logo.png" alt="proffy-web" width="280"/>
 </p>
 
 <h1 align="center">
