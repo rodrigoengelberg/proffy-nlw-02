@@ -54,12 +54,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native Picker](https://github.com/react-native-picker/picker) 
 - [React Native Collapsible ](https://github.com/oblador/react-native-collapsible)
 
-# :construction_worker: Rodando o projeto
+## :rocket: Executando
 
 Para rodar esse projeto existem duas maneiras para você escolher, a Live Version que é a versão que está rodando em nuvem para que você conferir, e a versão em Localhost, que é onde você baixa o projeto completo e roda a partir do seu terminal.
-
-#### Live Version:
-Você pode rodar nossa versão em nuvem em qualquer dispositivo com acesso a internet clicando [aqui](https://proffyweb.vercel.app/).
 
 ### Local Host:
 Também é possível rodar essa aplicação localmente em um computador ou notebook, para isso é necessário ter alguns programas instalados:
